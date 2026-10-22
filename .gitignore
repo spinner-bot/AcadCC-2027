@@ -1,0 +1,36 @@
+# 操作系统
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# 编辑器与 IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# 日志与临时文件
+*.log
+*.tmp
+~$*
+
+# 密钥与环境变量
+.env
+.env.*
+!.env.example
+
+# R
+.Rhistory
+.RData
+.Rapp.history
+.Rproj.user/
+
+# Python
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+venv/
+
+# Node（如后续引入工具链）
+node_modules/
