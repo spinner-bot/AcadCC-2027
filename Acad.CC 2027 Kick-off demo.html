@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>[6A14-02] Acad.CC 2027 Kick-off</title>
+<link rel="stylesheet" href="assets/css/deck.css">
+</head>
+<body>
+
+<canvas id="bg-canvas" aria-hidden="true"></canvas>
+<div id="bg-veil" aria-hidden="true"></div>
+
+<div id="progress" aria-hidden="true"><i id="progress-bar"></i></div>
+
+<main id="stage"><div id="deck"></div></main>
+
+<footer id="hud">
+  <div class="hud-left">
+    <span id="hud-part" class="hud-part"></span>
+    <span id="page-indicator" class="mono"></span>
+  </div>
+  <nav class="hud-right">
+    <button id="btn-prev" title="上一页（←）">‹</button>
+    <button id="btn-next" title="下一页（→）">›</button>
+    <span class="hud-sep"></span>
+    <button id="btn-chapters" title="章节导航（C）">章节</button>
+    <button id="btn-overview" title="总览（O）">总览</button>
+    <button id="btn-notes" title="演讲备注（N）">备注</button>
+    <button id="btn-full" title="全屏（F）">⛶</button>
+  </nav>
+</footer>
+
+<aside id="chapters" class="panel" aria-hidden="true">
+  <header class="panel-head"><h3>章节导航</h3><span class="hint">Esc / C 关闭</span></header>
+  <ol id="chapters-list"></ol>
+</aside>
+
+<section id="overview" class="panel" aria-hidden="true">
+  <header class="panel-head"><h3>总览</h3><span class="hint">点击跳转 · Esc 关闭</span></header>
+  <div id="overview-grid"></div>
+</section>
+
+<aside id="notes" class="panel" aria-hidden="true">
+  <header class="panel-head"><h3>演讲备注</h3><span class="hint">N 关闭</span></header>
+  <div id="notes-body"></div>
+</aside>
+
+<div id="hint-toast" class="toast" aria-hidden="true"></div>
+
+<script src="assets/js/starfield.js"></script>
+<script src="assets/js/deck.js"></script>
+<script src="assets/js/slides/01-cover.js"></script>
+<script src="assets/js/slides/02-setup.js"></script>
+<script src="assets/js/slides/03-team.js"></script>
+<script src="assets/js/slides/04-intros.js"></script>
+<script src="assets/js/slides/05-agenda.js"></script>
+<script src="assets/js/slides/06-topic.js"></script>
+<script src="assets/js/slides/07-research.js"></script>
+<script src="assets/js/slides/08-closing.js"></script>
+</body>
+</html>
