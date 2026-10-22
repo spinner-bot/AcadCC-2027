@@ -1,0 +1,27 @@
+# 文本文件自动识别，仓库内统一使用 LF
+* text=auto eol=lf
+
+# 二进制文件不做换行转换与文本 diff
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.ico binary
+*.pdf binary
+*.zip binary
+*.tar binary
+*.gz binary
+*.7z binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.otf binary
+*.mp3 binary
+*.mp4 binary
+*.psd binary
+
+# 文档类保持原样
+*.docx binary
+*.pptx binary
+*.xlsx binary
