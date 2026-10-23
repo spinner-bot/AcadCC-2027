@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>C方向 · 询价操作台</title>
+<style>
+  :root{--bg:#f4f6f8;--card:#fff;--ink:#17212b;--muted:#5f6b7a;--line:#dde3ea;--accent:#0b5fff;--accent-soft:#eaf1ff;--warn:#9a5b00;--warn-soft:#fff5e3}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",sans-serif}
+  .wrap{max-width:1120px;margin:0 auto;padding:28px 20px 64px}
+  header{display:flex;gap:18px;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;margin-bottom:22px}
+  h1{font-size:26px;line-height:1.25;margin:0 0 6px}
+  .sub{color:var(--muted);margin:0}
+  .badge{display:inline-block;padding:6px 10px;border-radius:999px;background:var(--warn-soft);color:var(--warn);font-size:13px;font-weight:600;white-space:nowrap}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:14px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px}
+  .card h2{font-size:17px;margin:0 0 4px}
+  .card h3{font-size:15px;margin:0 0 10px}
+  .vendor{display:flex;flex-direction:column;gap:10px}
+  .vendor-top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+  .tag{font-size:12px;color:var(--muted);background:#f1f4f8;border-radius:6px;padding:3px 7px;white-space:nowrap}
+  .why{color:var(--muted);font-size:13.5px;margin:0}
+  .actions{display:flex;gap:8px;flex-wrap:wrap}
+  a.btn,button.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;border:1px solid var(--accent);background:var(--accent);color:#fff;text-decoration:none;border-radius:8px;padding:8px 12px;font-size:14px;font-weight:600;cursor:pointer}
+  a.btn.ghost,button.btn.ghost{background:#fff;color:var(--accent)}
+  a.btn:hover,button.btn:hover{filter:brightness(.96)}
+  .phone{font-size:13.5px;color:var(--muted)}
+  .phone b{color:var(--ink);font-weight:600}
+  .steps{counter-reset:s;margin:0;padding:0;list-style:none}
+  .steps li{position:relative;padding-left:34px;margin:0 0 12px}
+  .steps li:before{counter-increment:s;content:counter(s);position:absolute;left:0;top:1px;width:24px;height:24px;border-radius:50%;background:var(--accent-soft);color:var(--accent);font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center}
+  .fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin:12px 0 4px}
+  label{display:block;font-size:12.5px;color:var(--muted);margin-bottom:4px}
+  input{width:100%;padding:8px 10px;border:1px solid var(--line);border-radius:7px;font:inherit;background:#fff}
+  input:focus{outline:2px solid var(--accent-soft);border-color:var(--accent)}
+  textarea{width:100%;min-height:320px;padding:14px;border:1px solid var(--line);border-radius:9px;font:13.5px/1.6 "Microsoft YaHei",Consolas,monospace;background:#fbfcfe;resize:vertical}
+  .toolbar{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
+  .note{background:var(--warn-soft);border-left:4px solid #e0a43a;border-radius:6px;padding:12px 14px;font-size:13.5px;color:#5f4300}
+  .ok{background:#eaf7f0;border-left:4px solid #34a06b;border-radius:6px;padding:12px 14px;font-size:13.5px;color:#145c3c}
+  table{width:100%;border-collapse:collapse;font-size:13.5px}
+  th,td{text-align:left;padding:8px 9px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{color:var(--muted);font-weight:600;background:#fafbfd}
+  code{background:#eef2f7;border-radius:4px;padding:1px 5px;font-family:Consolas,monospace;font-size:13px}
+  .files a{color:var(--accent)}
+  footer{margin-top:24px;color:var(--muted);font-size:12.5px}
+  @media print{body{background:#fff}.card{break-inside:avoid}.actions,.toolbar{display:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <h1>C方向 · 询价操作台</h1>
+      <p class="sub">6 家优先厂商 · 官网入口 · 公开电话 · 可复制邮件模板 · 跟踪字段</p>
+    </div>
+    <span class="badge">当前状态：6 家待发送</span>
+  </header>
+
+  <div class="card" style="margin-bottom:14px">
+    <h2>先看这里：怎么操作</h2>
+    <ol class="steps">
+      <li>在下面“发件人信息”里填好姓名、学校/项目、电话、邮箱；模板会自动替换占位符。</li>
+      <li>选一家厂商，点“打开官网询价”，优先走官网表单；找不到表单就打公开销售电话。</li>
+      <li>点“复制中文邮件”，粘贴到你的邮箱或官网表单；主题和正文都已按调研口径写好。</li>
+      <li>发送后在 <code>18-询价跟踪表.csv</code> 里填“发送日期、渠道、联系人”，状态改为“已发送”。</li>
+      <li>收到回复后，把报价口径、首年费用、年费、实施费、适用版本填回跟踪表，并回填 <code>16-价格与客户证据.md</code>。</li>
+    </ol>
+    <div class="note"><b>边界：</b>如实写明“高校竞赛/课程调研”，不要说已经决定采购；不要索取合同价、保密报价或未公开客户名单。公开电话来自厂商官网，未在官网稳定取得的邮箱不猜测。</div>
+  </div>
+
+  <div class="card" style="margin-bottom:14px">
+    <h2>发件人信息</h2>
+    <div class="fields">
+      <div><label for="name">姓名</label><input id="name" placeholder="张三" oninput="render()"></div>
+      <div><label for="school">学校/学院/项目</label><input id="school" placeholder="XX大学 XX学院 XX竞赛团队" oninput="render()"></div>
+      <div><label for="phone">电话</label><input id="phone" placeholder="手机号" oninput="render()"></div>
+      <div><label for="email">邮箱</label><input id="email" placeholder="name@example.com" oninput="render()"></div>
+    </div>
+    <p class="sub" style="font-size:12.5px">只在本页临时使用，不会上传或保存到任何服务器。</p>
+  </div>
+
+  <h2 style="font-size:19px;margin:22px 0 12px">6 家优先厂商</h2>
+  <div class="grid">
+    <div class="card vendor">
+      <div class="vendor-top"><h3>Medius</h3><span class="tag">海外 · AP自动化</span></div>
+      <p class="why">有公开套餐/报价入口，最可能给出计价口径；适合作为海外价格锚点。</p>
+      <div class="actions">
+        <a class="btn" href="https://www.medius.com/pricing/" target="_blank" rel="noopener">打开官网询价</a>
+        <button class="btn ghost" onclick="copyFor('Medius')">复制英文邮件</button>
+      </div>
+      <div class="phone">渠道：<b>官网 Get a quote 表单</b></div>
+    </div>
+
+    <div class="card vendor">
+      <div class="vendor-top"><h3>用友 BIP</h3><span class="tag">国内 · 大型企业</span></div>
+      <p class="why">国内财务/供应链一体化代表，适合核三单匹配、电子会计档案和集团多主体报价。</p>
+      <div class="actions">
+        <a class="btn" href="https://www.yonyou.com/" target="_blank" rel="noopener">打开官网询价</a>
+        <button class="btn ghost" onclick="copyFor('用友 BIP')">复制中文邮件</button>
+      </div>
+      <div class="phone">公开销售：<b>400-6600-577</b></div>
+    </div>
+
+    <div class="card vendor">
+      <div class="vendor-top"><h3>金蝶云</h3><span class="tag">国内 · 大型企业</span></div>
+      <p class="why">适合核集团多组织、应付共享、发票云与档案模块的价格结构。</p>
+      <div class="actions">
+        <a class="btn" href="https://www.kingdee.com/" target="_blank" rel="noopener">打开官网询价</a>
+        <button class="btn ghost" onclick="copyFor('金蝶云')">复制中文邮件</button>
+      </div>
+      <div class="phone">公开销售：<b>4008-830-830</b></div>
+    </div>
+
+    <div class="card vendor">
+      <div class="vendor-top"><h3>汇联易</h3><span class="tag">国内 · 费控/应付</span></div>
+      <p class="why">费控与应付场景接近，适合核发票查验、三单匹配、员工报销与审计留痕边界。</p>
+      <div class="actions">
+        <a class="btn" href="https://www.huilianyi.com/" target="_blank" rel="noopener">打开官网询价</a>
+        <button class="btn ghost" onclick="copyFor('汇联易')">复制中文邮件</button>
+      </div>
+      <div class="phone">公开销售：<b>400-829-7878</b></div>
+    </div>
+
+    <div class="card vendor">
+      <div class="vendor-top"><h3>每刻</h3><span class="tag">国内 · 费控/应付</span></div>
+      <p class="why">适合核 OCR、数电票、费用与应付一体化，以及中型企业起步价。</p>
+      <div class="actions">
+        <a class="btn" href="https://www.maycur.com/" target="_blank" rel="noopener">打开官网询价</a>
+        <button class="btn ghost" onclick="copyFor('每刻')">复制中文邮件</button>
+      </div>
+      <div class="phone">公开销售：<b>400-6789-576</b></div>
+    </div>
+
+    <div class="card vendor">
+      <div class="vendor-top"><h3>合思</h3><span class="tag">国内 · 费控/报销</span></div>
+      <p class="why">适合核“发票查验 + OCR + 预制发票 + 发起开票”链路；注意其专利公开情况。</p>
+      <div class="actions">
+        <a class="btn" href="https://www.ekuaibao.com/" target="_blank" rel="noopener">打开官网询价</a>
+        <button class="btn ghost" onclick="copyFor('合思')">复制中文邮件</button>
+      </div>
+      <div class="phone">公开销售：<b>400-835-8235</b></div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:16px">
+    <h2>邮件模板（自动带入发件人信息）</h2>
+    <div class="toolbar">
+      <button class="btn" onclick="copyText(document.getElementById('mail').value)">复制当前邮件</button>
+      <button class="btn ghost" onclick="setLang('zh')">中文版</button>
+      <button class="btn ghost" onclick="setLang('en')">English</button>
+      <span id="langHint" class="sub" style="align-self:center;font-size:12.5px">当前：中文</span>
+    </div>
+    <textarea id="mail" spellcheck="false"></textarea>
+    <div class="ok" style="margin-top:10px">发送前检查：主题是否含“高校竞赛调研”；是否写明“3 个主体、1,000 票/月、10 个用户”；是否只询问价格口径和公开案例；是否没有承诺采购。</div>
+  </div>
+
+  <div class="card" style="margin-top:16px">
+    <h2>收到回复后必须记录的字段</h2>
+    <table>
+      <thead><tr><th>字段</th><th>为什么记录</th></tr></thead>
+      <tbody>
+        <tr><td>适用版本/模块</td><td>三单、查验、OCR、归档、付款是否分开卖</td></tr>
+        <tr><td>计价口径</td><td>按主体、用户、单据量还是模块</td></tr>
+        <tr><td>首年费用</td><td>订阅 + 实施 + 接口 + 归档 + 税费</td></tr>
+        <tr><td>年费/维护费</td><td>不能只比较首年</td></tr>
+        <tr><td>数电票 XML/OFD</td><td>决定是否能跳过扫描件 OCR</td></tr>
+        <tr><td>试用/POC</td><td>验证真实流程，而不是只看演示</td></tr>
+        <tr><td>参考客户</td><td>要求同规模、同行业、同模块，并注明是厂商自述</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card files" style="margin-top:16px">
+    <h2>配套本地文件</h2>
+    <p><a href="17-%E8%AF%A2%E4%BB%B7%E9%82%AE%E4%BB%B6%E4%B8%8E%E8%B7%9F%E8%B8%AA%E8%A1%A8.md" target="_blank">17-询价邮件与跟踪表.md</a>　·　<a href="../data/csv/18-%E8%AF%A2%E4%BB%B7%E8%B7%9F%E8%B8%AA%E8%A1%A8.csv" target="_blank">18-询价跟踪表.csv</a>　·　<a href="16-%E4%BB%B7%E6%A0%BC%E4%B8%8E%E5%AE%A2%E6%88%B7%E8%AF%81%E6%8D%AE.md" target="_blank">16-价格与客户证据.md</a></p>
+    <p class="sub">浏览器可能直接显示 CSV/Markdown，也可能下载；用记事本或 Excel 打开即可编辑。</p>
+  </div>
+
+  <footer>本页仅用于高校竞赛/课程调研，不构成采购建议。价格、客户数量与案例须以厂商正式回复或公开页面为准，并在报告中标注“厂商自述”。</footer>
+</div>
+
+<script>
+const vendors = {
+  'Medius': {lang:'en', subject:'Academic benchmarking inquiry: 3-way match and e-invoice AP automation (3 entities, 1,000 invoices/month)'},
+  '用友 BIP': {lang:'zh', subject:'高校竞赛调研询价：三单匹配/数电票应付自动化（3 主体、1000 票/月）'},
+  '金蝶云': {lang:'zh', subject:'高校竞赛调研询价：三单匹配/数电票应付自动化（3 主体、1000 票/月）'},
+  '汇联易': {lang:'zh', subject:'高校竞赛调研询价：三单匹配/数电票应付自动化（3 主体、1000 票/月）'},
+  '每刻': {lang:'zh', subject:'高校竞赛调研询价：三单匹配/数电票应付自动化（3 主体、1000 票/月）'},
+  '合思': {lang:'zh', subject:'高校竞赛调研询价：三单匹配/数电票应付自动化（3 主体、1000 票/月）'}
+};
+let currentLang = 'zh';
+let currentVendor = '';
+function val(id, fallback){ const v = document.getElementById(id).value.trim(); return v || fallback; }
+function render(){
+  const name = val('name','[姓名]');
+  const school = val('school','[学校/学院/项目]');
+  const phone = val('phone','[电话]');
+  const email = val('email','[邮箱]');
+  const subject = vendors[currentVendor] ? vendors[currentVendor].subject : '高校竞赛调研询价：三单匹配/数电票应付自动化（3 主体、1000 票/月）';
+  const enSubject = vendors[currentVendor] && vendors[currentVendor].lang === 'en' ? vendors[currentVendor].subject : 'Academic benchmarking inquiry: 3-way match and e-invoice AP automation (3 entities, 1,000 invoices/month)';
+  const zh = `主题：${subject}\n\n您好：\n\n我们是 ${school} 的 ${name} 调研团队，正在比较企业应付账款与发票自动化产品，用于学术研究和方案设计，暂不构成采购承诺。\n\n希望了解贵司产品在以下场景的适用性与价格口径：\n\n- 3 个法人主体；\n- 每月约 1,000 张进项发票；\n- 10 个审核/财务用户；\n- 采购订单、收货/验收单、发票三单匹配；\n- 数电发票 XML/OFD 结构化读取；\n- 差异挂起、人工复核、审计留痕；\n- 电子会计档案归档。\n\n想请贵司提供：\n\n1. 适用模块与版本；\n2. 计价方式（按主体/用户/单据量/模块）；\n3. 可公开的价格区间或起步价；\n4. 实施费、接口费、归档费和年维护费；\n5. 是否支持试用/POC；\n6. 同规模或同行业的公开参考案例。\n\n如果方便，烦请回复一份产品介绍和报价口径，或告知更合适的沟通方式。感谢！\n\n${name}\n${school}\n${phone}\n${email}`;
+  const en = `Subject: ${enSubject}\n\nHello,\n\nWe are a university research team from ${school}, comparing accounts payable and invoice automation solutions for an academic competition. This is a research inquiry, not a purchase commitment.\n\nWe would like to understand fit and pricing for:\n\n- 3 legal entities;\n- approximately 1,000 inbound invoices per month;\n- 10 finance/review users;\n- three-way matching across purchase order, goods receipt, and invoice;\n- structured XML/OFD e-invoice ingestion;\n- exception hold, human review, and audit trail;\n- electronic archive.\n\nCould you share:\n\n1. the relevant product edition/modules;\n2. pricing metric (entity/user/volume/module);\n3. a public price range or starting price;\n4. implementation, integration, archive, and annual support fees;\n5. trial/POC availability;\n6. public reference customers of similar scale.\n\nA product deck and indicative pricing model would be very helpful. Thank you.\n\n${name}\n${school}\n${phone}\n${email}`;
+  document.getElementById('mail').value = currentLang === 'zh' ? zh : en;
+  document.getElementById('langHint').textContent = '当前：' + (currentLang === 'zh' ? '中文' : 'English') + (currentVendor ? ' · ' + currentVendor : '');
+}
+function setLang(lang){ currentLang = lang; render(); }
+function copyFor(vendor){ currentVendor = vendor; currentLang = vendors[vendor].lang; render(); copyText(document.getElementById('mail').value); }
+function fallbackCopy(text){
+  const ta = document.createElement('textarea');
+  ta.value = text; ta.style.position='fixed'; ta.style.opacity='0';
+  document.body.appendChild(ta); ta.select();
+  try{ document.execCommand('copy'); }catch(e){}
+  document.body.removeChild(ta);
+  alert('邮件已复制到剪贴板，可以粘贴到邮箱或官网表单。');
+}
+function copyText(text){
+  if(navigator.clipboard && window.isSecureContext){
+    navigator.clipboard.writeText(text).then(()=>alert('邮件已复制到剪贴板，可以粘贴到邮箱或官网表单。')).catch(()=>fallbackCopy(text));
+  }else{ fallbackCopy(text); }
+}
+render();
+</script>
+</body>
+</html>

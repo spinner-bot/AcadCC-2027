@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="AcadCC 2027 C 方向阶段成果：竞品、开源与专利调研">
+  <title>C 方向阶段成果｜竞品、开源与专利调研</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app">
+    <div class="viewport" id="viewport">
+      <div class="deck-shell" id="deckShell">
+        <main class="deck" id="deck" aria-live="polite">
+          <section class="slide slide-cover is-active" data-title="封面" aria-hidden="false">
+            <div class="cover-eyebrow">阶段成果 · V0.9</div>
+            <div class="cover-copy">
+              <h1>C 方向阶段成果</h1>
+              <p class="cover-subtitle">竞品、开源与专利调研</p>
+              <div class="cover-rule"></div>
+              <p class="cover-meta-line">提交对象：团队负责人</p>
+              <p class="cover-meta-line">2026-10-22 · 内部阶段版</p>
+            </div>
+            <div class="cover-mark" aria-hidden="true">C</div>
+            <div class="cover-duration">8 页 · 约 10 分钟</div>
+            <div class="speaker-notes" hidden>封面。说明这是 v0.9 阶段研判，不是最终 FTO 报告。</div>
+          </section>
+
+          <section class="slide" data-title="主要判断" aria-hidden="true">
+            <header class="slide-header"><span class="title-bar"></span><h2>三单匹配已是商业标配，原选题必须收窄</h2></header>
+            <div class="card-grid">
+              <article class="card">
+                <div class="card-number blue">01</div>
+                <h3>三单匹配不是空白</h3>
+                <p>Oracle 有 2/3/4-way；Medius 三方匹配；每刻三单 + 逐行；合思四单。</p>
+              </article>
+              <article class="card">
+                <div class="card-number red">02</div>
+                <h3>专利已经正面撞车</h3>
+                <p>4 件专利：应付三单、数电行级 + 容差、OCR + 规则 + LLM + 复核。</p>
+              </article>
+              <article class="card">
+                <div class="card-number green">03</div>
+                <h3>可争的是证据链</h3>
+                <p>跨单据字段级证据链、矛盾归因、可审计。</p>
+              </article>
+            </div>
+            <div class="callout">结论：不能再把三单匹配、数电直读、OCR + 查验、规则 + LLM + 复核分别当创新点。</div>
+            <footer class="slide-footer"><span>C 方向阶段成果 · v0.9</span><span>02 / 08</span></footer>
+            <div class="speaker-notes" hidden>三条结论：竞品、专利、差异点。来源：10-中期报告、15-提交说明、20-三家核验；厂商证据 E001–E008。</div>
+          </section>
+
+          <section class="slide" data-title="调研范围" aria-hidden="true">
+            <header class="slide-header"><span class="title-bar"></span><h2>我们查了什么：6 家竞品、27 个开源组件、49 条专利记录</h2></header>
+            <div class="metric-grid">
+              <article class="metric"><div class="metric-value blue">6/13</div><p>商业竞品已做公开页核验</p></article>
+              <article class="metric"><div class="metric-value green">48/117</div><p>P0 已查看；8/117 有直接证据</p></article>
+              <article class="metric"><div class="metric-value red">49/8</div><p>中国专利公开记录 / 已读 8 件权利要求 1</p></article>
+              <article class="metric"><div class="metric-value amber">6/13</div><p>价格或客户证据有公开线索</p></article>
+            </div>
+            <div class="info-band">
+              <strong>开源：27 行组件清单；1 个高风险 demo 已完成源码级核验。</strong>
+              <p>证据等级：A 官方文档 · B 厂商官网 · C 实测 · D 未核。B 级只能证明“厂商这样宣称”，不能证明“客户已上线”。</p>
+            </div>
+            <p class="footnote">“已查看”= 支持 / 部分 / 未见说明；“有直接支持证据”= 支持 / 部分。</p>
+            <footer class="slide-footer"><span>C 方向阶段成果 · v0.9</span><span>03 / 08</span></footer>
+            <div class="speaker-notes" hidden>来源：01-竞品能力矩阵.csv、02-开源组件清单.csv、03-专利检索表.csv、05-检索日志.csv、12/14-专利报告、16-价格与客户证据.md。</div>
+          </section>
+
+          <section class="slide" data-title="竞品核验" aria-hidden="true">
+            <header class="slide-header"><span class="title-bar"></span><h2>六家已核：四家有直接证据，两家不能下结论</h2></header>
+            <div class="table-wrap">
+              <table class="data-table">
+                <thead><tr><th>厂商</th><th>公开材料能证明什么</th><th>判断</th><th>证据</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>Oracle</strong></td><td>2/3/4-way 匹配、容差、重复发票检查</td><td><span class="badge baseline">企业级基线</span></td><td>E001/E002</td></tr>
+                  <tr><td><strong>Medius</strong></td><td>AI 采集 + 三方匹配（PO / 收货 / 合同）</td><td><span class="badge direct">直接竞品</span></td><td>E003/E004</td></tr>
+                  <tr><td><strong>每刻</strong></td><td>采购订单、入库单、发票自动三单匹配；明细逐行</td><td><span class="badge direct">直接竞品</span></td><td>E007</td></tr>
+                  <tr><td><strong>合思</strong></td><td>以“四单匹配”呈现；应付台账、采购对账、档案</td><td><span class="badge direct">直接竞品</span></td><td>E008</td></tr>
+                  <tr><td><strong>汇联易</strong></td><td>费控、报销、电子档案强；公开页未见“三单”</td><td><span class="badge adjacent">相邻产品</span></td><td>E005</td></tr>
+                  <tr><td><strong>金蝶</strong></td><td>公开产品页未见“三单”原文；不能判定不支持</td><td><span class="badge pending">待补核</span></td><td>E006</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="footnote">“直接竞品”指官网明确写到三单 / 四单；“待补核”不等于不支持。</p>
+            <footer class="slide-footer"><span>C 方向阶段成果 · v0.9</span><span>04 / 08</span></footer>
+            <div class="speaker-notes" hidden>来源：11-首批 3 家核验记录 E001–E005；20-金蝶每刻合思核验记录 E006–E008。</div>
+          </section>
+
+          <section class="slide" data-title="重点竞品" aria-hidden="true">
+            <header class="slide-header"><span class="title-bar"></span><h2>每刻与合思已经把匹配推进到三单 / 四单</h2></header>
+            <div class="two-col">
+              <article class="detail-card">
+                <div class="detail-head"><h3>每刻 · AI 应付</h3><span class="badge direct">直接竞品</span></div>
+                <ul class="bullet-list">
+                  <li>“采购订单、入库单、发票自动三单匹配”</li>
+                  <li>“发票明细和单据明细的逐行匹配”</li>
+                  <li>“匹配后自动生成应付单”</li>
+                  <li>另有发票查验、重复发票识别、电子档案</li>
+                </ul>
+              </article>
+              <article class="detail-card">
+                <div class="detail-head"><h3>合思 · 合思付款</h3><span class="badge four">四单</span></div>
+                <ul class="bullet-list">
+                  <li>“应付三单匹配信息难追溯”被列为痛点</li>
+                  <li>产品导航直接写“四单匹配”</li>
+                  <li>另有应付台账、采购对账、电子档案</li>
+                  <li>四单具体范围待售前确认</li>
+                </ul>
+              </article>
+            </div>
+            <div class="callout">三单 / 四单已经是产品语言；再把它当创新点，评审可能会问：“你和现有的每刻 / 合思有什么不同？”</div>
+            <footer class="slide-footer"><span>C 方向阶段成果 · v0.9</span><span>05 / 08</span></footer>
+            <div class="speaker-notes" hidden>来源：每刻 https://www.maycur.com/mkinvoice/；合思 https://www.ekuaibao.com/ap.html。均为厂商官网自述，未实测。</div>
+          </section>
+
+          <section class="slide" data-title="专利" aria-hidden="true">
+            <header class="slide-header"><span class="title-bar"></span><h2>专利：四件必须正面处理</h2></header>
+            <div class="table-wrap">
+              <table class="data-table patent-table">
+                <thead><tr><th>专利</th><th>状态</th><th>公开文本覆盖点</th><th>对我们的影响</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>CN112131470B</strong></td><td><span class="status active">Active · 2024-03-12</span></td><td>发票—货物清单自动匹配 + 结算单</td><td>不能单独主张“发票—结算自动匹配”</td></tr>
+                  <tr><td><strong>CN116596607A</strong></td><td><span class="status pending">Pending</span></td><td>应付三单 + 查验 + OCR + 预制发票 + 发起开票</td><td>三单链路组合被正面覆盖</td></tr>
+                  <tr><td><strong>CN119850353B</strong></td><td><span class="status active">Active · 2025-10-10</span></td><td>数电行级匹配 + 价格容差 + 应付发票</td><td>数电行级 + 容差不能单独主张</td></tr>
+                  <tr><td><strong>CN122416469A</strong></td><td><span class="status pending">Pending</span></td><td>OCR + 规则 + LLM + 置信度 + 复核 + 溯源</td><td>规则 + LLM + 复核组合被覆盖</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="warning-band">不能写“没有专利风险”。国知局登记簿、审查档案、同族与 FTO 仍未完成。</div>
+            <p class="footnote">注：Google Patents 的 Active / Pending 不等于国知局官方登记簿；上述状态用于初筛。</p>
+            <footer class="slide-footer"><span>C 方向阶段成果 · v0.9</span><span>06 / 08</span></footer>
+            <div class="speaker-notes" hidden>来源：14-中国专利权利要求核验.md；03-专利检索表.csv。状态为 Google Patents 初筛，正式引用前必须核国知局登记簿。</div>
+          </section>
+
+          <section class="slide" data-title="开源" aria-hidden="true">
+            <header class="slide-header"><span class="title-bar"></span><h2>开源：未发现生产级替代品，但存在一个高风险 demo</h2></header>
+            <div class="two-col open-source">
+              <article class="detail-card">
+                <h3>检索结果</h3>
+                <div class="search-row"><strong class="blue">188</strong><div><b>three-way match</b><span>最高 3★</span></div></div>
+                <div class="search-row"><strong class="blue">157</strong><div><b>invoice matching</b><span>最高 16★</span></div></div>
+                <div class="search-row"><strong class="blue">122</strong><div><b>AP automation</b><span>最高 32★</span></div></div>
+                <p class="card-note">未发现生产级完整项目；仅限 GitHub 关键词检索。</p>
+              </article>
+              <article class="detail-card">
+                <h3>公开 demo · 源码级核验</h3>
+                <p class="source-link">github.com/leokcgchen/three-way-match</p>
+                <div class="mini-columns">
+                  <div><h4 class="green">已实现</h4><ul class="bullet-list compact"><li>三单匹配</li><li>容差</li><li>riskReason</li><li>推理链</li><li>bbox 溯源</li><li>审计哈希链</li></ul></div>
+                  <div><h4 class="amber">未实现</h4><ul class="bullet-list compact"><li>数电票 XML / OFD 直读</li><li>账套 / ERP 对接</li></ul></div>
+                </div>
+                <p class="card-note emphasis">它能解释，但还不是证据驱动归因。</p>
+              </article>
+            </div>
+            <footer class="slide-footer"><span>C 方向阶段成果 · v0.9</span><span>07 / 08</span></footer>
+            <div class="speaker-notes" hidden>来源：02-开源组件清单.csv、06-撞车风险-E001.md。星数为 2026-10-17 快照，可能漂移。</div>
+          </section>
+
+          <section class="slide" data-title="收尾" aria-hidden="true">
+            <header class="slide-header"><span class="title-bar"></span><h2>综合本次调研：下一步计划</h2></header>
+            <div class="card-grid">
+              <article class="card"><div class="card-number blue">01</div><h3>收窄方向</h3><p>将题目重点收窄到证据链和可追溯。</p></article>
+              <article class="card"><div class="card-number red">02</div><h3>核验专利</h3><p>对重点专利开展正式核验。</p></article>
+              <article class="card"><div class="card-number green">03</div><h3>补充证据</h3><p>通过厂商询价和客户访谈补充真实证据。</p></article>
+            </div>
+            <div class="callout">完成这三项后，C 方向才能从公开资料研判进一步走向可答辩、可验证的方案。</div>
+            <footer class="slide-footer"><span>C 方向阶段成果 · v0.9</span><span>08 / 08</span></footer>
+            <div class="speaker-notes" hidden>收尾：综合本次调研，下一步计划分为三项：收窄方向、核验专利、补充证据。完成后再将 C 方向从公开资料研判推进到可答辩、可验证的方案。</div>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <div class="controls" aria-label="演示控制">
+      <div class="control-left"><button type="button" id="prev" aria-label="上一页">上一页</button><button type="button" id="next" aria-label="下一页">下一页</button></div>
+      <div class="control-center"><span id="slideTitle">封面</span><span class="counter" id="counter">01 / 08</span></div>
+      <div class="control-right"><button type="button" id="notesToggle" aria-pressed="false">讲稿</button><button type="button" id="fullscreen" aria-label="全屏">全屏</button></div>
+    </div>
+    <aside class="notes-panel" id="notesPanel" hidden><div class="notes-head"><strong>本页讲稿</strong><button type="button" id="notesClose" aria-label="关闭讲稿">关闭</button></div><div id="notesContent"></div></aside>
+    <div class="progress"><span id="progressBar"></span></div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

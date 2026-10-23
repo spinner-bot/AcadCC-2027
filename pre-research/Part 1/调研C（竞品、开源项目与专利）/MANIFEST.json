@@ -1,0 +1,243 @@
+{
+  "project": "AcadCC-2027",
+  "direction": "C",
+  "title": "竞品、开源与专利调研",
+  "version": "v0.9",
+  "generated_at": "2026-10-23",
+  "target_repository": "https://github.com/spinner-bot/AcadCC-2027",
+  "formats": {
+    "documents": [
+      "md"
+    ],
+    "reports": [
+      "html",
+      "md"
+    ],
+    "presentation": [
+      "html",
+      "css",
+      "js"
+    ],
+    "data": [
+      "csv"
+    ],
+    "scripts": [
+      "ps1",
+      "sh",
+      "bat"
+    ]
+  },
+  "boundary": "阶段研判，不是最终 FTO 报告、结题报告或法律意见。",
+  "files": [
+    {
+      "path": ".gitignore",
+      "category": "other",
+      "format": "",
+      "bytes": 838,
+      "sha256": "da2e8e37705acd2d53994afe6471867ae282e92710e167c09120c480feefab1e"
+    },
+    {
+      "path": "data/csv/01-竞品能力矩阵.csv",
+      "category": "data",
+      "format": "csv",
+      "bytes": 5607,
+      "sha256": "0c738b3eb9b83f7ef7db791d7dac668ebb77a73ab096859e788bec424f010b96"
+    },
+    {
+      "path": "data/csv/02-开源组件清单.csv",
+      "category": "data",
+      "format": "csv",
+      "bytes": 5756,
+      "sha256": "62457059e9737f3c12c0024b2dacef64ba2c4a64d72f75cbbb7aa0665b5cffbd"
+    },
+    {
+      "path": "data/csv/03-专利检索表.csv",
+      "category": "data",
+      "format": "csv",
+      "bytes": 6378,
+      "sha256": "65671d67388cf163b4e5fc18fefd7aa6094dd86d9fd2567333c877453665e826"
+    },
+    {
+      "path": "data/csv/05-检索日志.csv",
+      "category": "data",
+      "format": "csv",
+      "bytes": 3362,
+      "sha256": "acaa858d53c34bcec9bfc8975bd27cc6c428bad926ded77247fa6b42f786b903"
+    },
+    {
+      "path": "data/csv/18-询价跟踪表.csv",
+      "category": "data",
+      "format": "csv",
+      "bytes": 476,
+      "sha256": "6826d84d3bd4e7b4c2c4df3a36240b74effd99699d82b9a72877635dd2f85b17"
+    },
+    {
+      "path": "docs/04-证据卡模板.md",
+      "category": "document",
+      "format": "md",
+      "bytes": 1667,
+      "sha256": "5fb68667fbf68e036b629cef88f67a508acadda506cdcc5b5c78878e51f9fdcb"
+    },
+    {
+      "path": "docs/06-撞车风险-E001.md",
+      "category": "document",
+      "format": "md",
+      "bytes": 6488,
+      "sha256": "991e87ea3455b1925761f4732309085d1c61612eb13ff4f7c7cee20c5a6df44d"
+    },
+    {
+      "path": "docs/07-商业竞品分层.md",
+      "category": "document",
+      "format": "md",
+      "bytes": 5395,
+      "sha256": "e41f9607857f0fb558a3842e0db437c61e66c1d9bbb5e4ec322bb8e580a3311e"
+    },
+    {
+      "path": "docs/08-数据来源与取证路径.md",
+      "category": "document",
+      "format": "md",
+      "bytes": 4814,
+      "sha256": "f8e172ba2304566cf17ac7681ee9484dccd4fd41c213153d970feb9e6e02ef81"
+    },
+    {
+      "path": "docs/09-盲区清单.md",
+      "category": "document",
+      "format": "md",
+      "bytes": 5617,
+      "sha256": "25cc7e5f31a6d7afc4141229d62245dee2c27b453c2e5255697a51cbc31cf254"
+    },
+    {
+      "path": "docs/11-首批3家核验记录.md",
+      "category": "document",
+      "format": "md",
+      "bytes": 6638,
+      "sha256": "55544ca21f6283952c8da2b42f35288b317e1757087b65608b6b1655681483a3"
+    },
+    {
+      "path": "docs/12-专利初筛报告.md",
+      "category": "document",
+      "format": "md",
+      "bytes": 12089,
+      "sha256": "993d8128cb4b1fdf2d94dd18b2ad75cc0fcb64815b565d3539583d875a9a8aec"
+    },
+    {
+      "path": "docs/14-中国专利权利要求核验.md",
+      "category": "document",
+      "format": "md",
+      "bytes": 12824,
+      "sha256": "b0e81fdc8a62392703dbc2bbde8d5ae5e43012b0108da29e64ee88ddc070a2be"
+    },
+    {
+      "path": "docs/15-阶段成果提交说明.md",
+      "category": "document",
+      "format": "md",
+      "bytes": 6220,
+      "sha256": "892d65d76e408f24ac528d970a9cd74c863f21767c99981ba2bf7d8e90f223de"
+    },
+    {
+      "path": "docs/16-价格与客户证据.md",
+      "category": "document",
+      "format": "md",
+      "bytes": 10219,
+      "sha256": "a4a4291727f0177a091ed3871c39502ae8e21e51426062a426a264d80ed9b3d2"
+    },
+    {
+      "path": "docs/17-询价邮件与跟踪表.md",
+      "category": "document",
+      "format": "md",
+      "bytes": 5948,
+      "sha256": "c8da1797052b86cc8812398967f1c05dd2f6e16d29e5ff308601de655a408d36"
+    },
+    {
+      "path": "docs/20-金蝶每刻合思核验记录.md",
+      "category": "document",
+      "format": "md",
+      "bytes": 10969,
+      "sha256": "575cd15b68d1dfe2f62bb169b03037f98fc2f37e74a3ddb2d29b0136cfc274fc"
+    },
+    {
+      "path": "docs/inquiry-portal.html",
+      "category": "document",
+      "format": "html",
+      "bytes": 16783,
+      "sha256": "9c2900e9e66e19b7c1b716d06627b89fa38da3e523a871a1819bed3f6f90b5d1"
+    },
+    {
+      "path": "presentation/app.js",
+      "category": "presentation",
+      "format": "js",
+      "bytes": 4323,
+      "sha256": "03603388b327faf6b1c41c859bcafecff49d766eddda8a0a0d22e60e0930ba25"
+    },
+    {
+      "path": "presentation/index.html",
+      "category": "presentation",
+      "format": "html",
+      "bytes": 14798,
+      "sha256": "ade0aa0d064c39e0f968214415ba0b208eed441bf616586aae8461a9636d28d6"
+    },
+    {
+      "path": "presentation/styles.css",
+      "category": "presentation",
+      "format": "css",
+      "bytes": 10108,
+      "sha256": "76760ce549ce88524a49cddbf30b4d38faee19dcef8e3c5fb19c034aa2f32184"
+    },
+    {
+      "path": "README.md",
+      "category": "document",
+      "format": "md",
+      "bytes": 4241,
+      "sha256": "088ff5182f5177416aadbb0cd4e12504ce859eb69527bdd9199695c0ca9ad498"
+    },
+    {
+      "path": "report/C方向调研报告.html",
+      "category": "report",
+      "format": "html",
+      "bytes": 20177,
+      "sha256": "405223407e948959f1204bccc43a5be41443de56d725ea3e3eb002545fae7872"
+    },
+    {
+      "path": "report/C方向调研报告.md",
+      "category": "report",
+      "format": "md",
+      "bytes": 11570,
+      "sha256": "77d48edf26d3900b0c6fe8d2cc4819f5ebc4a00ed9aa55483a4ab0dbceb6c836"
+    },
+    {
+      "path": "scripts/open-inquiry-portal.bat",
+      "category": "script",
+      "format": "bat",
+      "bytes": 159,
+      "sha256": "64005a2fb09d09f95fb66ac35b0a97e18057b7aeb23b7a19e4624fe45227eb25"
+    },
+    {
+      "path": "scripts/open-inquiry-portal.ps1",
+      "category": "script",
+      "format": "ps1",
+      "bytes": 213,
+      "sha256": "fd165a1442cd2be534df16bd263e4752db4c788a42be02bc1daec1044b42e12d"
+    },
+    {
+      "path": "scripts/open-inquiry-portal.sh",
+      "category": "script",
+      "format": "sh",
+      "bytes": 382,
+      "sha256": "d053b013e40f480617636c6408d80e3469ff76851dac1018a93f7a8e429bfd19"
+    },
+    {
+      "path": "scripts/pre-push-check.ps1",
+      "category": "script",
+      "format": "ps1",
+      "bytes": 6751,
+      "sha256": "1d07bea8d7bba94e70529e98d267f2f2ec2ecdcb5e4a7dc2cd5e4cc47f23967b"
+    },
+    {
+      "path": "scripts/pre-push-check.sh",
+      "category": "script",
+      "format": "sh",
+      "bytes": 3857,
+      "sha256": "555288a0ec3a327e3dfd46fccfac63b18aaa6cd70b724845b3cc10d8ee2ddc0f"
+    }
+  ]
+}

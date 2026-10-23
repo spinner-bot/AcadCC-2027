@@ -1,0 +1,22 @@
+﻿公开号,标题,申请人,公开日,法律状态,技术主题,涉及能力项,与我们的关系,检索库,检索日期,备注
+US8694429B1,Identifying and resolving discrepancies between purchase documents and invoices,"Sciquest, Inc.（现 JAGGAER）",2014-04-08,未核,采购单据与发票之间的差异识别与解决,3 三方匹配 / 5 差异分类 / 6 归因,直接相关：三单差异处理,Google Patents,2026-10-18,"claim1 已读：覆盖≥3份单据、三方比对、业务规则、差异识别与通知；优先权 2008-01-15"
+US11915195B2,Systems and methods for intelligent field matching and anomaly detection,Oracle International Corporation,2024-02-27,未核,字段智能匹配与异常检测,3 / 4 容差 / 5 / 6,高度相关：匹配 + 异常,Google Patents,2026-10-18,"摘要已读：AI 预测记账条目与申请单行项目匹配 + 异常检测；优先权 2018-10-19；权利要求未读"
+US8781925B1,Accounts payable process,"The PNC Financial Services Group, Inc.",2014-07-15,未核,应付账款流程,3 / 8 人工复核,相关：AP 流程层面,Google Patents,2026-10-18,权利要求未读
+US11663647B2,User-specific rule-based database querying,"Sciquest, Inc.",2023-05-30,未核,基于用户规则的数据库查询,4 容差 / 规则引擎,弱相关,Google Patents,2026-10-18,"检索""three-way match""命中"
+CN107682308B,Electronic evidence preservation system based on block chain latent channel,北京航空航天大学,2019-12-13,未核,区块链电子证据保全,7 证据链,相邻：证据链，但技术路线为区块链,Google Patents,2026-10-18,权利要求未读
+CN112001586B,Enterprise networking big data audit risk control architecture based on block chain,航天科工网络信息发展有限公司,2024-06-07,未核,区块链审计风控架构,7 / 6,相邻：审计风控,Google Patents,2026-10-18,权利要求未读
+CN109637000B,"Invoice detection method and device, storage medium and electronic terminal",深圳壹账通智能科技有限公司,2021-12-28,未核,发票检测方法,1 单据解析 / 2 真伪,相关：发票识别,Google Patents,2026-10-18,权利要求未读
+CN117932896A,Data processing system and method based on virtual simulation,航天信息股份有限公司,2024-04-26,未核,数据处理系统,未核,弱相关（检索误命中）,Google Patents,2026-10-18,标题与主题不符，仅记录
+CN112131470B,一种基于线性最优的发票三单匹配方法,欧冶云商股份有限公司,2024-03-12,Active（2024-03-12 授权）,发票与货物清单的线性最优三单匹配,3 三方匹配 / 4 容差,直接相关：自动匹配并生成结算单,Google Patents（CN 全文）,2026-10-18,"claim1 已读；申请日 2020-09-23；预计届满 2040-09-23；对通用三单匹配中高风险"
+CN116596607A,供应商结算系统,北京合思信息技术有限公司,2023-08-15,Pending,供应商协同结算系统（三单匹配+查验+OCR+开票）,1 / 2 / 3 / 8,高度相关：竞争者系统权利要求,Google Patents（CN 全文）,2026-10-18,"claim1 已读；申请日 2023-05-22；未授权；最高优先级监控"
+CN119850353B,一种基于数电发票的关联交易自动化结算方法及系统,长飞光纤光缆股份有限公司,2025-04-18,Active（2025-10-10 授权）,数电发票行级匹配+价格容差+应付发票,3 / 4 / 6 / 7,高度相关：数电票自动配单链路,Google Patents（CN 全文）,2026-10-18,"claim1 已读；申请日 2024-12-25；中高风险"
+CN114612201A,业务处理方法、装置、存储介质及电子设备,石化盈科信息技术有限责任公司,2022-06-10,Pending,发票校验+入库清单匹配+凭证生成,1 / 2 / 3,相关：自动凭证生成,Google Patents（CN 全文）,2026-10-18,"claim1 已读；申请日 2021-12-31；未授权"
+CN121052886A,一种电力物资供应数电发票结算方法、装置、系统及介质,国网山西省电力有限公司物资分公司等,2025-12-02,Pending,ERP发票池+订单校验+报销/付款审批,1 / 3 / 8 / 17,相关：电网物资场景的数电票结算,Google Patents（CN 全文）,2026-10-18,"claim1 已读；申请日 2025-07-07；未授权；场景限缩"
+CN121639298A,一种供应商数电发票风险防控方法、系统、设备及产品,远光软件股份有限公司,2026-03-10,Pending,开票前风险规则+税局接口+发票池,2 / 5 / 6,相邻：发票风险防控,Google Patents（CN 全文）,2026-10-18,"claim1 已读；申请日 2025-12-10；未授权"
+CN120833606A,一种基于引导词与拓扑结构的语义锚点定义方法,湖南大学,2025-10-24,Pending,异构票据OCR字段定位,1 / 7,相邻：字段定位，不等于证据链,Google Patents（CN 全文）,2026-10-18,"claim1 已读；申请日 2025-07-04；未授权"
+CN122416469A,一种基于大模型的商保审核医疗票据智能分拣的方法,云知声（广西）智能科技有限公司等,2026-07-17,Pending,OCR+规则+LLM+置信度+人工复核+明细溯源,1 / 5 / 6 / 7 / 8,相邻但很近：技术组合接近,Google Patents（CN 全文）,2026-10-18,"claim1 已读；申请日 2026-05-30；未授权；创新性风险中高"
+【检索结论】three-way match invoice,共 88 件；Top: Sciquest US8694429B1、PNC US8781925B1,—,—,—,匹配/差异处理专利集中在 2014 年前后,3 / 5 / 6,说明三单匹配不是新概念,Google Patents,2026-10-18,仅元数据级
+【检索结论】invoice verification ML,共 284 件；Top 多为 CN 分拣/检测装置,—,—,—,发票识别专利多偏硬件/分拣,1 / 2,与本项目软件路线重合度低,Google Patents,2026-10-18,关键词宽泛，噪声较大
+【检索结论】invoice anomaly detection,共 519 件；关键命中 Oracle US11915195B2,—,—,—,字段匹配 + 异常检测,3 / 5 / 6,"与""匹配+异常""路线直接重合",Google Patents,2026-10-18,需读权利要求
+【检索结论】evidence chain audit,共 5028 件；噪声大，多为区块链存证/网络安全,—,—,—,证据链概念被多领域占用,7,不能据此判断自由度,Google Patents,2026-10-18,检索式过宽，结论仅参考
+【补充完成】中国专利关键词检索,Google Patents 中文全文页,49 条公开记录,8 件,直接/相邻相关 8 件,已读 claim1 与法律状态；其余仅元数据/摘要,3 / 4 / 5 / 6 / 7 / 8,Google Patents（CN 全文）,2026-10-18,"国知局登记簿/同族/审查档案未核；正式 FTO 需复核"

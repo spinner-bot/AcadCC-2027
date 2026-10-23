@@ -1,0 +1,463 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="C 方向中期整合与验证报告">
+  <title>C 方向中期整合与验证报告｜AcadCC 2027 C 方向</title>
+  <style>
+:root{--ink:#14202e;--muted:#5d6977;--soft:#7a8594;--line:#dde3ea;--bg:#f6f7f9;--blue:#0b5fff;--navy:#0e1a2b;--blue-soft:#eaf1ff;--red:#b42318;--red-soft:#feecea;--green:#0f7b4f;--green-soft:#eaf7f0;--amber:#9a5b00;--amber-soft:#fff4e5}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:"Microsoft YaHei","PingFang SC","Noto Sans CJK SC",sans-serif;line-height:1.75}
+a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}.topbar{position:sticky;top:0;z-index:5;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:13px 28px;background:rgba(14,26,43,.96);color:#fff;backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.1)}
+.topbar .brand{font-size:13px;font-weight:700;letter-spacing:.04em;color:#cbd8ea}.topbar nav{display:flex;gap:18px;flex-wrap:wrap}.topbar nav a{color:#eaf1ff;font-size:13px;text-decoration:none}.topbar nav a:hover{color:#8fb4ff}
+.hero{max-width:1080px;margin:0 auto;padding:64px 28px 30px}.eyebrow{color:var(--blue);font-size:12px;font-weight:800;letter-spacing:.16em}.hero h1{margin:12px 0 12px;font-size:42px;line-height:1.2;letter-spacing:-.02em}.hero p{margin:0;color:var(--muted);font-size:15px}.hero .boundary{margin-top:22px;padding:14px 18px;border-left:4px solid var(--blue);border-radius:0 10px 10px 0;background:#fff;color:var(--muted);font-size:14px}
+.report{max-width:1080px;margin:0 auto 70px;padding:44px 56px;background:#fff;border:1px solid #e1e6ec;border-radius:18px;box-shadow:0 8px 30px rgba(14,26,43,.05)}
+.report>h1:first-child{display:none}.report h1,.report h2,.report h3,.report h4{line-height:1.35;letter-spacing:-.01em}.report h1{font-size:34px;margin:0 0 24px}.report h2{margin:46px 0 16px;padding-bottom:10px;border-bottom:1px solid var(--line);font-size:26px}.report h3{margin:30px 0 12px;font-size:20px}.report h4{margin:24px 0 10px;font-size:17px}.report p{margin:12px 0}.report ul,.report ol{padding-left:1.5em}.report li{margin:6px 0}.report strong{color:#0e1a2b}.report blockquote{margin:20px 0;padding:14px 18px;border-left:4px solid var(--blue);border-radius:0 10px 10px 0;background:var(--blue-soft);color:#31445c}.report blockquote p{margin:6px 0}.report code{padding:2px 6px;border-radius:5px;background:#eef2f6;color:#20344b;font-family:Consolas,"SFMono-Regular",monospace;font-size:.92em}.report pre{overflow:auto;padding:18px;border-radius:12px;background:#101c2c;color:#e9f2ff}.report pre code{padding:0;background:none;color:inherit}.report table{display:block;width:100%;overflow:auto;margin:20px 0;border-collapse:collapse;font-size:14px}.report th,.report td{min-width:110px;padding:10px 12px;border:1px solid #e1e6ec;vertical-align:top}.report th{background:var(--navy);color:#fff;text-align:left}.report tbody tr:nth-child(even){background:#f8fafc}.report hr{margin:34px 0;border:0;border-top:1px solid var(--line)}.report a{word-break:break-word}
+.footer-note{max-width:1080px;margin:-40px auto 60px;padding:0 28px;color:var(--soft);font-size:12px;text-align:center}
+@media(max-width:760px){.topbar{padding:12px 16px}.topbar nav{gap:12px}.hero{padding:40px 18px 22px}.hero h1{font-size:32px}.report{margin:0 12px 40px;padding:28px 20px}.report table{font-size:12px}.footer-note{padding:0 18px}}
+@media print{body{background:#fff}.topbar,.hero .boundary,.footer-note{display:none}.hero{max-width:none;padding:0 0 18px}.report{max-width:none;margin:0;padding:0;border:0;box-shadow:none}.report table{display:table;overflow:visible}.report pre{white-space:pre-wrap}}
+</style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">AcadCC 2027 · C 方向</div>
+    <nav><a href="../README.md">README</a><a href="../presentation/index.html">演示</a><a href="../docs/15-阶段成果提交说明.md">提交说明</a><a href="C方向调研报告.md">Markdown</a></nav>
+  </header>
+  <section class="hero">
+    <div class="eyebrow">阶段研判 · V0.9</div>
+    <h1>C 方向中期整合与验证报告</h1>
+    <p>竞品、开源与专利调研 · 2026-10-23 整理</p>
+    <div class="boundary">本报告为阶段研判，不是最终 FTO 报告、结题报告或法律意见。公开材料未见说明不等于厂商不支持，存在相关专利也不等于已经构成侵权。</div>
+  </section>
+  <main class="report"><blockquote>
+<p>2026-10-17
+范围：<code>research/C-竞品与开源/</code> 下全部文件
+方法：文件盘点 → 逐条回溯证据 → 重新核验关键数字 → 判定证据等级与有效性</p>
+<p><strong>更新（同日）</strong>：已完成首批 3 家（Oracle / Medius / 汇联易）公开页核验，见 <code>11-首批3家核验记录.md</code>。当时按旧口径记为 P0 21/117；该口径后经修正，见下方 2026-10-18 商业更新。</p>
+<p><strong>更新（2026-10-18）</strong>：已补中国专利检索，命中 49 条公开记录，读取 8 件首项权利要求与法律状态，见 <code>14-中国专利权利要求核验.md</code>。结论由“中文 0%”改为“中英文初筛完成，官方登记簿/FTO 未完成”。</p>
+<p><strong>更新（2026-10-18，商业）</strong>：新增金蝶云、每刻、合思三家公开页核验，见 <code>20-金蝶每刻合思核验记录.md</code>。商业覆盖由 3/13 提升到 6/13；P0 已查看 48/117，其中有直接支持证据 8/117。每刻明确支持三单匹配与逐行匹配；合思以“四单匹配”呈现；金蝶公开页未见“三单”原文。</p>
+</blockquote>
+<h2>0. 一页结论</h2>
+<h3>已经站得住的三条</h3>
+<ol>
+<li><strong>开源侧「三单匹配 + 归因」几乎没有生产级项目</strong>——中英双语检索互证，结果稳定</li>
+<li><strong>存在 1 个高度重合的公开 demo</strong>，已完成源码级核验；它没有做结构化电子凭证，也没有账套对接</li>
+<li><strong>底层文档解析已成熟</strong>，不应自研；但 <code>MinerU</code> 的许可需要读原文</li>
+</ol>
+<h3>还不能用的三条</h3>
+<ol start="4">
+<li><strong>商业竞品能力矩阵：6/13 家已做公开页核验</strong>；P0 已查看 48/117，其中有直接支持证据 8/117。每刻、合思已有直接三单/四单证据；金蝶、汇联易公开页关键项未见说明</li>
+<li><strong>专利：中英文初筛完成</strong>，中国 49 条记录中已核 8 件 claim1；但国知局登记簿、同族、审查档案和 FTO 尚未完成</li>
+<li><strong>「国内厂商 AI 归因弱」：纯推断，未取证</strong>，不得写入正式材料</li>
+</ol>
+<h3>最需要纠正的一条口径</h3>
+<ol start="7">
+<li><strong>「竞品只标记不解释」不成立</strong>。leokcgchen 的代码里有 <code>riskReason</code>、<code>ReasoningStep</code> 推理链和 bbox 溯源。正确表述是「规则级解释 + 过程留痕，未到证据驱动归因」。</li>
+</ol>
+<hr>
+<h2>1. 成果盘点</h2>
+<table>
+<thead>
+<tr>
+<th>文件</th>
+<th>类型</th>
+<th>数据量</th>
+<th>状态</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>README.md</code></td>
+<td>任务书</td>
+<td>—</td>
+<td>可用</td>
+</tr>
+<tr>
+<td><code>01-竞品能力矩阵.csv</code></td>
+<td>商业矩阵</td>
+<td>22 能力 × 13 对象；6 家已做公开页核验；P0 已查看 48/117，直接支持 8/117</td>
+<td>部分完成</td>
+</tr>
+<tr>
+<td><code>02-开源组件清单.csv</code></td>
+<td>开源清单</td>
+<td>27 行</td>
+<td>已核（元数据级）</td>
+</tr>
+<tr>
+<td><code>03-专利检索表.csv</code></td>
+<td>专利</td>
+<td>8 件中国专利（claim1 级） + 既有英文记录</td>
+<td>初筛已填</td>
+</tr>
+<tr>
+<td><code>04-证据卡模板.md</code></td>
+<td>模板</td>
+<td>—</td>
+<td>可用</td>
+</tr>
+<tr>
+<td><code>05-检索日志.csv</code></td>
+<td>过程留痕</td>
+<td>18 行（含 2026-10-18 三家官网核验）</td>
+<td>可用</td>
+</tr>
+<tr>
+<td><code>06-撞车风险-E001.md</code></td>
+<td>证据卡</td>
+<td>11 项已实现 / 7 项未做</td>
+<td>源码级核验</td>
+</tr>
+<tr>
+<td><code>07-商业竞品分层.md</code></td>
+<td>竞品分层</td>
+<td>4 层 / 约 25 家</td>
+<td><strong>未核</strong></td>
+</tr>
+<tr>
+<td><code>08-数据来源与取证路径.md</code></td>
+<td>方法</td>
+<td>四级标准 + 入口</td>
+<td>可用</td>
+</tr>
+<tr>
+<td><code>09-盲区清单.md</code></td>
+<td>缺口分析</td>
+<td>12 条</td>
+<td>可用</td>
+</tr>
+<tr>
+<td><code>10-C方向中期整合与验证报告.md</code></td>
+<td>阶段整合</td>
+<td>含证据等级与边界</td>
+<td>当前版本</td>
+</tr>
+<tr>
+<td><code>11-首批3家核验记录.md</code></td>
+<td>证据卡</td>
+<td>Oracle / Medius / 汇联易</td>
+<td>已完成</td>
+</tr>
+<tr>
+<td><code>12-专利初筛报告.md</code></td>
+<td>专利</td>
+<td>英文检索 + 中国专利补充</td>
+<td>初筛完成</td>
+</tr>
+<tr>
+<td><code>14-中国专利权利要求核验.md</code></td>
+<td>专利</td>
+<td>8 件 claim1 + 法律状态</td>
+<td>已完成初筛</td>
+</tr>
+<tr>
+<td><code>15-阶段成果提交说明.md</code></td>
+<td>送审说明</td>
+<td>一页结论、边界、下一步</td>
+<td>可提交</td>
+</tr>
+<tr>
+<td><code>16-价格与客户证据.md</code></td>
+<td>商业证据</td>
+<td>6/13 家价格线索、6/13 家具名/规模客户证据</td>
+<td>初筛完成，待独立证据复核</td>
+</tr>
+<tr>
+<td><code>17-询价邮件与跟踪表.md</code></td>
+<td>询价工具</td>
+<td>中英文模板、6 家优先渠道、跟进信</td>
+<td>草稿，待发送</td>
+</tr>
+<tr>
+<td><code>18-询价跟踪表.csv</code></td>
+<td>询价记录</td>
+<td>15 个字段，6 家优先对象</td>
+<td>空表</td>
+</tr>
+<tr>
+<td><code>20-金蝶每刻合思核验记录.md</code></td>
+<td>商业证据卡</td>
+<td>E006–E008：金蝶 / 每刻 / 合思</td>
+<td>已完成公开页核验</td>
+</tr>
+</tbody></table>
+<p><strong>一句话概括</strong>：方法层面完成度高，开源侧有硬证据，商业侧仍大部分空白，专利侧已完成中英文初筛但未做官方登记簿/FTO。</p>
+<hr>
+<h2>2. 逐条验证</h2>
+<p>证据等级定义：</p>
+<ul>
+<li><strong>L1</strong> 源码 / 接口原文核验</li>
+<li><strong>L2</strong> 官方平台元数据（GitHub API、搜索接口）</li>
+<li><strong>L3</strong> 作者 / 厂商自述</li>
+<li><strong>L4</strong> 未核（行业常识或推断）</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>结论</th>
+<th>证据</th>
+<th>等级</th>
+<th>判定</th>
+<th>边界</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>「three-way match」开源品类几近空白</td>
+<td>搜索 total=188，最高 3★，2026-10-17 复核一致</td>
+<td>L2</td>
+<td><strong>成立</strong></td>
+<td>仅限 GitHub 关键词检索；不能外推到全市场</td>
+</tr>
+<tr>
+<td>2</td>
+<td>英文侧同样空白</td>
+<td>invoice matching 157 / AP automation 122 / P2P 460，最高 32★</td>
+<td>L2</td>
+<td><strong>成立</strong></td>
+<td>同上</td>
+</tr>
+<tr>
+<td>3</td>
+<td>底层解析成熟</td>
+<td>PaddleOCR 91,274★ Apache-2.0；MinerU 81,918★ NOASSERTION；docling 69,003★ MIT</td>
+<td>L2</td>
+<td><strong>成立</strong></td>
+<td>星数为当日快照，实测有漂移</td>
+</tr>
+<tr>
+<td>4</td>
+<td>MinerU 非纯 Apache-2.0</td>
+<td>接口返回 <code>NOASSERTION</code></td>
+<td>L2</td>
+<td><strong>成立</strong></td>
+<td>与 deck 第 64 页一致；仍未读 LICENSE 原文</td>
+</tr>
+<tr>
+<td>5</td>
+<td>中文发票工具集中在归集/打印</td>
+<td>Invoice-Downloader 509★、fapiao-print 176★、invoice_ocr 173★</td>
+<td>L2 + L3</td>
+<td><strong>基本成立</strong></td>
+<td>依据仓库自述，未读代码</td>
+</tr>
+<tr>
+<td>6</td>
+<td>leokcgchen 已实现三单匹配、容差、风险理由、推理链、bbox 溯源、审计哈希链</td>
+<td><code>matchEngine.ts</code> L817–1869、<code>pdfTrace.ts</code>、<code>schema.ts</code> L186–201</td>
+<td>L1</td>
+<td><strong>成立</strong></td>
+<td>未运行；未读 <code>routers/matchTasks.ts</code></td>
+</tr>
+<tr>
+<td>7</td>
+<td>leokcgchen 未实现数电票 XML/OFD、账套对接</td>
+<td>已读 19 个文件中检索 <code>xml</code>/<code>ofd</code>/<code>数电</code>/<code>电子凭证</code>/<code>账套</code> 均无命中</td>
+<td>L1（限定）</td>
+<td><strong>成立（限定范围）</strong></td>
+<td>不能外推到整个仓库</td>
+</tr>
+<tr>
+<td>8</td>
+<td>leokcgchen 有 123 条离线测试</td>
+<td>其 <code>ENGINEERING-ROADMAP.md</code> 自述</td>
+<td>L3</td>
+<td><strong>未核</strong></td>
+<td>必须标「作者自述」</td>
+</tr>
+<tr>
+<td>9</td>
+<td>商业竞品 12 家、四大分层</td>
+<td>行业知识</td>
+<td>L4</td>
+<td><strong>未核</strong></td>
+<td>只能用于「决定查谁」</td>
+</tr>
+<tr>
+<td>10</td>
+<td>国内厂商 AI 归因弱</td>
+<td>推断</td>
+<td>L4</td>
+<td><strong>未核</strong></td>
+<td>高风险表述，禁止引用</td>
+</tr>
+<tr>
+<td>11</td>
+<td>三单匹配已是商业红海，不能作为独立创新点</td>
+<td>Oracle 2/3/4-way；Medius 三方匹配；每刻三单+逐行；合思四单</td>
+<td>L3（A/B）</td>
+<td><strong>成立</strong></td>
+<td>证明产品宣称/文档，未实测归因</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>3. 有效性评估</h2>
+<h3>3.1 内部效度（结论是否由证据推出）</h3>
+<ul>
+<li><strong>关键词检索只能证明「搜不到」，不能证明「不存在」</strong>。这一条对中英文都成立，只是英文更干净。</li>
+<li><strong>未使用代码搜索</strong>。GitHub code search 需要登录，本轮只搜了仓库名与描述，可能漏掉不叫 <code>three-way-match</code> 的实现。</li>
+<li><strong>中文切词差</strong>，中文检索结果噪声大，所以中文侧结论更弱。</li>
+<li><strong>star 数不等于可用性</strong>：188 个仓库里 0–3★ 多为课程作业；反过来，AWS 315★ 也只是参考架构，不是产品。</li>
+</ul>
+<h3>3.2 外部效度（能否推广）</h3>
+<ul>
+<li><strong>开源空白 ≠ 商业空白</strong>。商业侧恰恰相反：三单匹配是 ERP 的标配功能。<strong>这两条绝不能混着讲</strong>，否则会得出「市场没有竞品」的错误结论。</li>
+<li><strong>GitHub 生态 ≠ 中国市场</strong>。国内厂商代码不公开，开源结论对国内商业竞争解释力有限。</li>
+<li><strong>学生 demo ≠ 技术前沿</strong>。leokcgchen 是个人项目，不代表行业水平。</li>
+</ul>
+<h3>3.3 覆盖度</h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>目标</th>
+<th>已完成</th>
+<th>完成率</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>商业竞品能力</td>
+<td>13 家 × 22 项</td>
+<td>6 家已做公开页核验；P0 已查看 48/117，其中有直接支持证据 8/117</td>
+<td><strong>P0 已查看 41%；直接支持约 7%</strong></td>
+</tr>
+<tr>
+<td>开源组件</td>
+<td>覆盖四层</td>
+<td>27 行</td>
+<td>高</td>
+</tr>
+<tr>
+<td>专利</td>
+<td>三库 + 中英文</td>
+<td>4 组英文检索 / 49 条中文公开记录 / 8 件 claim1</td>
+<td><strong>中英文初筛完成；官方登记簿与 FTO 0%</strong></td>
+</tr>
+<tr>
+<td>价格</td>
+<td>13 家</td>
+<td>6 家有公开价格入口/套餐线索</td>
+<td><strong>部分完成；仍无同口径成交价</strong></td>
+</tr>
+<tr>
+<td>用户/客户证据</td>
+<td>13 家</td>
+<td>6 家有具名案例或客户规模自述</td>
+<td><strong>部分完成；主要为厂商自述</strong></td>
+</tr>
+<tr>
+<td>反证</td>
+<td>≥3 条</td>
+<td>1 条</td>
+<td><strong>33%</strong></td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>口径修正：<code>已查看</code> = 支持 / 部分 / 未见说明；<code>有直接支持证据</code> = 支持 / 部分。旧版“21/117”把部分“未见说明”也计入了已核，容易虚高；本版分开计算。</p>
+</blockquote>
+<h3>3.4 可靠性</h3>
+<ul>
+<li><strong>实测星数漂移</strong>：约 30 分钟内 PaddleOCR +2、MinerU +7。所有数字必须带「截至 2026-10-17」。</li>
+<li><strong>搜索 total_count 随索引变化</strong>，复核只能保证同一时点一致。</li>
+<li><strong>结论稳定性</strong>：核心结论（开源上层空白）在中英双语、多组检索式下方向一致，<strong>稳定</strong>；商业结论已从纯推断升级为公开页证据，但未实测、未拿到报价，仍<strong>不稳定</strong>。</li>
+</ul>
+<hr>
+<h2>4. 已修正 / 待修正</h2>
+<h3>已修正</h3>
+<ul>
+<li><code>06</code> 第一版「止步于标记、未到归因」→ 已按源码重写</li>
+<li><code>02</code> 的 leokcgchen 行 → 改为「撞车风险（高）」，注明已读源码</li>
+<li><code>02</code> 星数 → 按复核值更新（PaddleOCR 91,274 / MinerU 81,918）</li>
+<li><code>05</code> 检索日志 → 补录至 18 行</li>
+<li><code>README.md</code> → 已补文件索引（01–20）</li>
+</ul>
+<h3>待修正</h3>
+<ul>
+<li><code>07</code> 全篇为 L4，文件头已标「仅供确定查谁」；对外引用前必须逐条核官方文档</li>
+<li>「国内厂商 AI 归因弱」仍是推断，未取证</li>
+</ul>
+<hr>
+<h2>5. 可对外 / 不可对外表述</h2>
+<table>
+<thead>
+<tr>
+<th>可写</th>
+<th>不可写</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>「截至 2026-10-17，GitHub 检索『three-way match』共 188 个仓库，最高 3 星」</td>
+<td>「市场上没有三单匹配产品」</td>
+</tr>
+<tr>
+<td>「据其公开代码，该项目已实现…」</td>
+<td>「竞品都不做归因」</td>
+</tr>
+<tr>
+<td>「本次读取的文件范围内未发现 XML/OFD 解析」</td>
+<td>「它完全不支持数电票」</td>
+</tr>
+<tr>
+<td>「商业侧 6/13 家已做公开页核验，4 家有直接支持证据」</td>
+<td>「国内厂商 AI 能力弱」</td>
+</tr>
+<tr>
+<td>「该能力仍需回官方文档核对」</td>
+<td>「某厂商不支持某功能」</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>6. 下一步（按优先级）</h2>
+<ol>
+<li><strong>商业矩阵继续补到 8/13</strong>：先用产品手册/售前补金蝶与用友 BIP；SAP/Basware 视时间再补。已有 6/13 公开页核验，重点从“有没有三单”转向“标准/配置/二开 + 归因/证据链”。</li>
+<li><strong>专利下一轮</strong>：以 <code>14-中国专利权利要求核验.md</code> 为入口，读 <code>CN116596607A</code>、<code>CN119850353B</code>、<code>CN122416469A</code> 的完整权利要求，并回国知局登记簿核法律状态。</li>
+<li><strong>收紧 06</strong>：读 <code>routers/matchTasks.ts</code> 与 30 个测试文件，把「未发现」变成「确认没有」或「确认有」。</li>
+<li><strong>补 2 条反证</strong>：目前只有 1 条（leokcgchen 推翻了「只标记」），至少要 3 条。</li>
+<li><strong>价格与客户证据</strong>：把 6 家询价发出去，至少拿到 3 家计价口径；客户证据优先找招投标、年报、客户公告，不把官网 logo 当作“已采购三单模块”。</li>
+</ol>
+<hr>
+<h2>7. 证据索引</h2>
+<table>
+<thead>
+<tr>
+<th>结论</th>
+<th>存于</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>开源仓库元数据、许可、星数</td>
+<td><code>02-开源组件清单.csv</code></td>
+</tr>
+<tr>
+<td>检索过程留痕</td>
+<td><code>05-检索日志.csv</code></td>
+</tr>
+<tr>
+<td>撞车风险的源码级证据</td>
+<td><code>06-撞车风险-E001.md</code></td>
+</tr>
+<tr>
+<td>商业厂商分层（未核）</td>
+<td><code>07-商业竞品分层.md</code></td>
+</tr>
+<tr>
+<td>取证方法与证据等级</td>
+<td><code>08-数据来源与取证路径.md</code></td>
+</tr>
+<tr>
+<td>尚未覆盖的方向</td>
+<td><code>09-盲区清单.md</code></td>
+</tr>
+<tr>
+<td>专利初筛与中国专利核验</td>
+<td><code>12-专利初筛报告.md</code>、<code>14-中国专利权利要求核验.md</code></td>
+</tr>
+<tr>
+<td>金蝶 / 每刻 / 合思公开页证据</td>
+<td><code>20-金蝶每刻合思核验记录.md</code></td>
+</tr>
+</tbody></table>
+</main>
+  <p class="footer-note">AcadCC 2027 · C 方向 · v0.9 阶段研判</p>
+</body>
+</html>
