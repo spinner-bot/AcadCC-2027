@@ -1,0 +1,120 @@
+# ============================================================
+# 调研 E · 数据与实验可行性 —— 目录级 .gitignore
+# 原则：本方向只提交「文本化成果」，一切原始数据、二进制原件、
+#       本地缓存都不进仓库（组内约定：避免污染远程仓库）。
+# 参考：调研C/.gitignore
+# ============================================================
+
+# ---------- 操作系统与编辑器噪声 ----------
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# ---------- Office 锁文件与临时文件 ----------
+# 打开 pptx / docx / xlsx 时自动生成的 ~$xxx，绝不能提交
+~$*
+*.tmp
+*.temp
+*.bak
+*.orig
+
+# ---------- 本地缓存与虚拟环境 ----------
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+.venv/
+venv/
+env/
+.mypy_cache/
+.ruff_cache/
+
+# ---------- 日志 ----------
+*.log
+*.ndjson
+
+# ---------- 下载的公开数据集（体积大，且许可多为「仅限研究用途」）----------
+# E 方向必然要下 SROIE / FUNSD / CORD，这些一律留在本地，不进仓库
+data/raw/
+data/downloads/
+datasets/
+downloads/
+.cache/
+*.zip
+*.7z
+*.rar
+*.tar
+*.tar.gz
+*.tgz
+*.gz
+*.gzip
+
+# ---------- 二进制与演示原件（本方向不提交）----------
+*.ppt
+*.pptx
+*.doc
+*.docx
+*.xls
+*.xlsx
+*.pdf
+*.exe
+*.dll
+*.so
+*.dylib
+*.bin
+*.class
+*.jar
+*.wasm
+*.db
+*.sqlite
+*.sqlite3
+*.ttf
+*.otf
+*.woff
+*.woff2
+*.eot
+
+# ---------- 图片与音视频 ----------
+# 如需提交评测图表，放到 docs/img/ 下，并在文件末尾单独用 ! 放行，
+# 不要直接取消本段忽略规则（单张截图几百 KB，多起来很快撑爆仓库）。
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.webp
+*.bmp
+*.tif
+*.tiff
+*.ico
+*.svg
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.mp3
+*.wav
+*.flac
+
+# ---------- 本地凭据与隐私 ----------
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+credentials.*
+secrets.*
+# 含真实企业名称、联系人、报价的原始单据，一律不进仓库
+*-filled.csv
+*-原始.*
+
+# ============================================================
+# 放行示例（需要时取消注释）：
+# !docs/img/*.png
+# ============================================================
