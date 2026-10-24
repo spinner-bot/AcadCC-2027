@@ -47,12 +47,25 @@ is_allowed() {
   return 1
 }
 
+# ---------- 二进制例外名单 ----------
+# 组长要求「前期调研的工作文件产出……包括PPT」一并归档（2026-10-24）。
+# 只放行下面这一份汇报原件，其它 pptx/pdf/图片 仍按二进制拦截。
+is_exception() {
+  case "$1" in
+    方向E_过程性报告.pptx) return 0 ;;
+    *) return 1 ;;
+  esac
+}
+
 while IFS= read -r f; do
   [ -n "$f" ] || continue
   base=${f##*/}
   case "$base" in
     .gitignore|.gitkeep|.gitattributes) continue ;;
   esac
+  if is_exception "$base"; then
+    continue
+  fi
   if ! is_allowed "$base"; then
     fail "扩展名不在白名单内: ${f#$ROOT/}"
   fi
@@ -67,6 +80,9 @@ while IFS= read -r f; do
   case "$base" in
     .gitignore|.gitkeep|.gitattributes) continue ;;
   esac
+  if is_exception "$base"; then
+    continue
+  fi
   is_allowed "$base" || continue
 
   if od -An -tx1 "$f" 2>/dev/null | tr -s ' ' '\n' | grep -qx '00'; then
@@ -131,3 +147,6 @@ fi
 
 printf '%s\n' "自检通过：.gitignore 存在；目录内只有 UTF-8 文本；"
 printf '%s\n' "         未发现二进制、数据集目录、超大文件、临时文件或凭据。"
+if [ -f "$ROOT/方向E_过程性报告.pptx" ]; then
+  printf '%s\n' "         例外放行：方向E_过程性报告.pptx（组长要求归档的汇报原件）"
+fi
